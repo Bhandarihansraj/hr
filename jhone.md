@@ -1,190 +1,137 @@
-Below is **John the Ripper commands shown HERE with clear examples**
-👉 short • practical • copy-paste ready
 
----
 
-## 1️⃣ Basic Crack
+## 1️⃣ Create password
 
-```bash
+
+echo -n "test123" > pass.txt
+
+
+## 2️⃣ Create hash (example MD5)
+
+
+md5sum pass.txt > hash.txt
+
+
+## 3️⃣ View hash file
+
+
+cat hash.txt
+
+
+## 4️⃣ List supported formats
+
+
+john --list=formats
+
+
+## 5️⃣ Auto-detect & crack
+
 john hash.txt
-```
 
-**Use:** start cracking hashes
-**Example:** crack simple hashes in `hash.txt`
 
----
-
-## 2️⃣ Help / Info
+## 6️⃣ Specify format (example)
 
 ```bash
-john --help
-john --version
+john --format=raw-md5 hash.txt
 ```
-
-**Use:** options / version check
 
 ---
 
-## 3️⃣ Show Cracked Passwords
+## 7️⃣ Show cracked result
 
 ```bash
 john --show hash.txt
 ```
 
-**Use:** display cracked passwords
-**Output:** `user:password`
-
 ---
 
-## 4️⃣ Specify Hash Type
+## 8️⃣ Dictionary attack
 
 ```bash
-john --list=formats
-john --format=md5 hash.txt
+john --wordlist=/usr/share/wordlists/rockyou.txt hash.txt
 ```
-
-**Use:** when auto-detect fails
-**Example:** force MD5 cracking
 
 ---
 
-## 5️⃣ Wordlist Attack
-
-```bash
-john --wordlist=rockyou.txt hash.txt
-```
-
-**Use:** dictionary attack
-**Example:** common real-world passwords
-
----
-
-## 6️⃣ Wordlist + Rules (Smart)
+## 9️⃣ Dictionary + rules
 
 ```bash
 john --wordlist=rockyou.txt --rules hash.txt
 ```
 
-**Use:** add mutations
-**Example:** `admin` → `Admin@123`
+---
+
+## 🔟 Mask attack
+
+```bash
+john --mask=?l?l?l?d?d?d hash.txt
+```
 
 ---
 
-## 7️⃣ Incremental (Brute Force)
+## 1️⃣1️⃣ Incremental (brute force)
 
 ```bash
 john --incremental hash.txt
 ```
 
-**Use:** full brute force
-**Example:** unknown passwords
-
 ---
 
-## 8️⃣ Numeric Only
+## 1️⃣2️⃣ Select user (if present)
 
 ```bash
-john --incremental=Digits hash.txt
+john --users=user hash.txt
 ```
-
-**Use:** PIN / numbers only
-**Example:** `1234`, `987654`
 
 ---
 
-## 9️⃣ Mask Attack (Fast & Targeted)
+## 1️⃣3️⃣ Session save
 
 ```bash
-john --mask=?l?l?l?d hash.txt
+john --session=job1 hash.txt
 ```
-
-**Use:** pattern-based
-**Example:** `abc1`, `xyz9`
-
-Common masks:
-
-* `?l` = lowercase
-* `?u` = uppercase
-* `?d` = digit
-* `?s` = symbol
 
 ---
 
-## 🔟 Linux Password Files
+## 1️⃣4️⃣ Restore session
 
 ```bash
-unshadow /etc/passwd /etc/shadow > crack.txt
-john crack.txt
+john --restore=job1
 ```
-
-**Use:** Linux password audit
 
 ---
 
-## 1️⃣1️⃣ Session Save / Resume
-
-```bash
-john --session=test hash.txt
-john --restore=test
-```
-
-**Use:** resume after stop
-
----
-
-## 1️⃣2️⃣ Use CPU Cores
-
-```bash
-john --fork=4 hash.txt
-```
-
-**Use:** faster cracking (multi-core)
-
----
-
-## 1️⃣3️⃣ Status Check
+## 1️⃣5️⃣ Status
 
 ```bash
 john --status
 ```
 
-**Use:** see progress live
-
 ---
 
-## 1️⃣4️⃣ User-Specific Crack
+## 1️⃣6️⃣ Multi-CPU
 
-```bash
-john --users=admin hash.txt
-```
+h
+john --fork=4 hash.txt
 
-**Use:** target single user
 
----
 
-## 1️⃣5️⃣ Combine Everything (Real-World)
 
-```bash
-john --format=sha256crypt \
---wordlist=rockyou.txt \
---rules \
---fork=4 \
-hash.txt
-```
+## 1️⃣7️⃣ Stop cracking
 
-**Use:** realistic audit workflow
 
----
+Ctrl + C
 
-### 🧠 Smart Order (remember)
 
-**Identify hash → Wordlist → Rules → Mask → Incremental → Show**
+## 1️⃣8️⃣ Linux password file (lab VM)
 
-If you want next:
 
-* **Hash types explained with examples**
-* **Why brute force feels “infinite”**
-* **John vs Hashcat (real difference)**
-* **Advanced rule writing (killer part)**
+sudo unshadow /etc/passwd /etc/shadow > crack.txt
+john crack.txt
+john --show crack.txt
 
-Say **next** 👍
+
+## 1️⃣9️⃣ Help
+
+
+john --help
