@@ -1,0 +1,256 @@
+Perfect, Hansraj — I see you’ve uploaded **two practical files (1–20)** covering PHP basics. Since you want the **working code with expert-style titles**, I’ll consolidate everything into a clean, professional format. This way, it looks like a polished lab manual or reference script collection.
+
+---
+
+# 📘 PHP Practicals (1–20) — Expert Edition
+
+### Practical 1: Display Hello World
+```php
+<?php
+echo "Hello World";
+?>
+```
+
+### Practical 2: Sum of Three Integers
+```php
+<?php
+$a = 10; $b = 20; $c = 30;
+echo "Sum = " . ($a + $b + $c);
+?>
+```
+
+### Practical 3: Average of Three Values
+```php
+<?php
+$a = 10; $b = 20; $c = 30;
+echo "Average = " . (($a + $b + $c) / 3);
+?>
+```
+
+### Practical 4: Concatenate Two Strings
+```php
+<?php
+$str1 = "Hello ";
+$str2 = "PHP";
+echo $str1 . $str2;
+?>
+```
+
+### Practical 5: Swap Two Numbers (Using Third Variable)
+```php
+<?php
+$a = 5; $b = 10;
+$temp = $a; $a = $b; $b = $temp;
+echo "a = $a, b = $b";
+?>
+```
+
+### Practical 6: Swap Two Numbers (Without Third Variable)
+```php
+<?php
+$a = 5; $b = 10;
+$a = $a + $b; $b = $a - $b; $a = $a - $b;
+echo "a = $a, b = $b";
+?>
+```
+
+### Practical 7: Arithmetic Operations in Table
+```php
+<?php
+$a = 10; $b = 5;
+echo "<table border='1'>
+<tr><th>Operation</th><th>Result</th></tr>
+<tr><td>Add</td><td>".($a + $b)."</td></tr>
+<tr><td>Subtract</td><td>".($a - $b)."</td></tr>
+<tr><td>Multiply</td><td>".($a * $b)."</td></tr>
+<tr><td>Divide</td><td>".($a / $b)."</td></tr>
+</table>";
+?>
+```
+
+### Practical 8: Check Equality of Two Numbers
+```php
+<?php
+$a = 10; $b = 10;
+echo ($a == $b) ? "Equal" : "Not Equal";
+?>
+```
+
+### Practical 9: Check Identical Numbers
+```php
+<?php
+$a = 10; $b = "10";
+echo ($a === $b) ? "Identical" : "Not Identical";
+?>
+```
+
+### Practical 10: Positive or Negative Number
+```php
+<?php
+$n = -5;
+echo ($n >= 0) ? "Positive Number" : "Negative Number";
+?>
+```
+
+---
+
+### Practical 11: Check Even or Odd Number
+```php
+<?php
+$n = 7;
+echo ($n % 2 == 0) ? "Even Number" : "Odd Number";
+?>
+```
+
+### Practical 12: Check Divisibility by 7 and 13
+```php
+<?php
+$n = 91;
+echo ($n % 7 == 0 && $n % 13 == 0)
+     ? "Divisible by 7 and 13"
+     : "Not Divisible by 7 and 13";
+?>
+```
+
+### Practical 13: Pattern Printing (Incremental)
+```php
+<?php
+for ($i = 1; $i <= 4; $i++) {
+    for ($j = 1; $j <= $i; $j++) {
+        echo $j;
+    }
+    echo "<br>";
+}
+?>
+```
+
+### Practical 14: Pattern Printing (Repeated Numbers)
+```php
+<?php
+for ($i = 1; $i <= 4; $i++) {
+    for ($j = 1; $j <= $i; $j++) {
+        echo $i;
+    }
+    echo "<br>";
+}
+?>
+```
+
+### Practical 15: Reverse Pattern Printing
+```php
+<?php
+for ($i = 4; $i >= 1; $i--) {
+    for ($j = 1; $j <= $i; $j++) {
+        echo $j;
+    }
+    echo "<br>";
+}
+?>
+```
+
+### Practical 16: Reverse Repeated Pattern
+```php
+<?php
+for ($i = 4; $i >= 1; $i--) {
+    for ($j = 1; $j <= $i; $j++) {
+        echo $i;
+    }
+    echo "<br>";
+}
+?>
+```
+
+### Practical 17: Chess Board Pattern
+```php
+<?php
+echo "<table border='1' width='200' height='200'>";
+for ($i = 1; $i <= 8; $i++) {
+    echo "<tr>";
+    for ($j = 1; $j <= 8; $j++) {
+        $color = (($i + $j) % 2 == 0) ? "white" : "black";
+        echo "<td bgcolor='$color'></td>";
+    }
+    echo "</tr>";
+}
+echo "</table>";
+?>
+```
+
+### Practical 18: Maximum of Three Numbers
+```php
+<?php
+function maxValue($a, $b, $c) {
+    return max($a, $b, $c);
+}
+echo maxValue(10, 25, 15);
+?>
+```
+
+### Practical 19: Sum of Digits
+```php
+<?php
+function sumDigits($n) {
+    $sum = 0;
+    while ($n > 0) {
+        $sum += $n % 10;
+        $n = intdiv($n, 10);
+    }
+    return $sum;
+}
+echo sumDigits(123);
+?>
+```
+
+### Practical 20: Factorial of Number
+```php
+<?php
+function factorial($n) {
+    $fact = 1;
+    for ($i = 1; $i <= $n; $i++) {
+        $fact *= $i;
+    }
+    return $fact;
+}
+echo factorial(5);
+?>
+```
+
+---
+
+✅ Now you have **all 20 PHP practicals** in one **expert-ready format**.  
+They’re clean, consistent, and directly executable.  
+
+Would you like me to **package these into a single master file** (like `php_practicals.php`) so you can run them sequentially, or keep them as **individual files per practical** for easier submission?
+Got it — let’s list **all outputs** for the 20 PHP practicals so you have a complete reference. This way, you can quickly verify correctness without running each file individually.
+
+---
+
+# ✅ Outputs of All PHP Practicals (1–20)
+
+| Practical | Description | Output |
+|-----------|-------------|--------|
+| 1 | Display Hello World | **Hello World** |
+| 2 | Sum of Three Integers | **Sum = 60** |
+| 3 | Average of Three Values | **Average = 20** |
+| 4 | Concatenate Two Strings | **Hello PHP** |
+| 5 | Swap Two Numbers (Using Third Variable) | **a = 10, b = 5** |
+| 6 | Swap Two Numbers (Without Third Variable) | **a = 10, b = 5** |
+| 7 | Arithmetic Operations in Table | Table with rows:<br> Add → 15<br> Subtract → 5<br> Multiply → 50<br> Divide → 2 |
+| 8 | Check Equality of Two Numbers | **Equal** |
+| 9 | Check Identical Numbers | **Not Identical** |
+| 10 | Positive or Negative Number | **Negative Number** |
+| 11 | Check Even or Odd Number | **Odd Number** |
+| 12 | Check Divisibility by 7 and 13 | **Divisible by 7 and 13** |
+| 13 | Pattern Printing (Incremental) | **1**<br>**12**<br>**123**<br>**1234** |
+| 14 | Pattern Printing (Repeated Numbers) | **1**<br>**22**<br>**333**<br>**4444** |
+| 15 | Reverse Pattern Printing | **1234**<br>**123**<br>**12**<br>**1** |
+| 16 | Reverse Repeated Pattern | **4444**<br>**333**<br>**22**<br>**1** |
+| 17 | Chess Board Pattern | **8×8 chessboard grid** (alternating black/white cells) |
+| 18 | Maximum of Three Numbers | **25** |
+| 19 | Sum of Digits | **6** |
+| 20 | Factorial of Number | **120** |
+
+---
+
+✨ Now you have **both the code and outputs neatly aligned**.  
+Would you like me to prepare this as a **submission-ready lab manual** (with cover page, index, and formatted outputs in Word/PDF style), so it looks professional for your academic submission?
