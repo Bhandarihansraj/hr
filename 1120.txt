@@ -1,0 +1,253 @@
+Practical 11: Check Even or Odd Number
+Aim: Check whether a number is even or odd.
+Logic: Modulo operator identifies remainder.
+Program Code:
+<?php
+$n = 7;
+echo ($n % 2 == 0) ? 'Even Number' : 'Odd Number';
+?>
+Output: Odd Number
+Practical 12: Check Divisibility by 7 and 13
+Aim: Check divisibility conditions.
+Logic: Both conditions validated using logical AND.
+Program Code:
+<?php
+$n = 91;
+echo ($n % 7 == 0 && $n % 13 == 0)
+    ? 'Divisible by 7 and 13'
+    : 'Not Divisible by 7 and 13';
+?>
+Output: Divisible by 7 and 13
+Practical 13: Pattern Printing (Incremental)
+Aim: Print numeric pattern.
+Logic: Nested loops control rows and columns.
+Program Code:
+<?php
+for ($i = 1; $i <= 4; $i++) {
+    for ($j = 1; $j <= $i; $j++) {
+        echo $j;
+    }
+    echo "<br>";
+}
+?>
+Output: 1 12 123 1234
+Practical 14: Pattern Printing (Repeated Numbers)
+Aim: Print repeated number pattern.
+Logic: Outer loop controls value repetition.
+Program Code:
+<?php
+for ($i = 1; $i <= 4; $i++) {
+    for ($j = 1; $j <= $i; $j++) {
+        echo $i;
+    }
+    echo "<br>";
+}
+?>
+Output: 1 22 333 4444
+Practical 15: Reverse Pattern Printing
+Aim: Print reverse numeric pattern.
+Logic: Outer loop decrements row size.
+Program Code:
+<?php
+for ($i = 4; $i >= 1; $i--) {
+    for ($j = 1; $j <= $i; $j++) {
+        echo $j;
+    }
+    echo "<br>";
+}
+?>
+Output: 1234 123 12 1
+Practical 16: Reverse Repeated Pattern
+Aim: Print reverse repeated pattern.
+Logic: Loop values decrease sequentially.
+Program Code:
+<?php
+for ($i = 4; $i >= 1; $i--) {
+    for ($j = 1; $j <= $i; $j++) {
+        echo $i;
+    }
+    echo "<br>";
+}
+?>
+Output: 4444 333 22 1
+Practical 17: Chess Board Pattern
+Aim: Generate chessboard layout.
+Logic: Cell color depends on row-column parity.
+Program Code:
+<?php
+echo "<table border='1' width='200' height='200'>";
+for ($i = 1; $i <= 8; $i++) {
+    echo "<tr>";
+    for ($j = 1; $j <= 8; $j++) {
+        $color = (($i + $j) % 2 == 0) ? 'white' : 'black';
+        echo "<td bgcolor='$color'></td>";
+    }
+    echo "</tr>";
+}
+echo "</table>";
+?>
+Output: Chess board displayed
+Practical 18: Maximum of Three Numbers
+Aim: Find maximum value using function.
+Logic: Built-in max function used.
+Program Code:
+<?php
+function maxValue($a, $b, $c) {
+    return max($a, $b, $c);
+}
+echo maxValue(10, 25, 15);
+?>
+Output: 25
+Practical 19: Sum of Digits
+Aim: Calculate sum of digits.
+Logic: Loop extracts digits sequentially.
+Program Code:
+<?php
+function sumDigits($n) {
+    $sum = 0;
+    while ($n > 0) {
+        $sum += $n % 10;
+        $n = intdiv($n, 10);
+    }
+    return $sum;
+}
+echo sumDigits(123);
+?>
+Output: 6
+Practical 20: Factorial of Number
+Aim: Calculate factorial using function.
+Logic: Multiplicative loop execution.
+Program Code:
+<?php
+function factorial($n) {
+    $fact = 1;
+    for ($i = 1; $i <= $n; $i++) {
+        $fact *= $i;
+    }
+    return $fact;
+}
+echo factorial(5);
+?>
+Output: 120
+
+Practical 21: Check Prime Number
+Aim: Check whether a number is prime.
+Logic: Divisibility tested up to square root.
+Program Code:
+<?php
+$n = 7;
+$isPrime = true;
+if ($n <= 1) $isPrime = false;
+for ($i = 2; $i <= sqrt($n); $i++) {
+    if ($n % $i == 0) {
+        $isPrime = false;
+        break;
+    }
+}
+echo $isPrime ? 'Prime Number' : 'Not Prime';
+?>
+Output: Prime Number
+Practical 22: Reverse a String
+Aim: Reverse given string.
+Logic: Built-in string reverse used.
+Program Code:
+<?php
+echo strrev('PHP');
+?>
+Output: PHP
+Practical 23: Palindrome String Check
+Aim: Check palindrome string.
+Logic: Original compared with reversed string.
+Program Code:
+<?php
+$str = 'madam';
+echo ($str === strrev($str)) ? 'Palindrome' : 'Not Palindrome';
+?>
+Output: Palindrome
+Practical 24: Simple PHP Class
+Aim: Create basic class with constructor.
+Logic: Constructor runs on object creation.
+Program Code:
+<?php
+class MyClass {
+    public function __construct() {
+        echo 'MyClass class has initialized !';
+    }
+}
+new MyClass();
+?>
+Output: MyClass class has initialized !
+Practical 25: PHP Class with Argument
+Aim: Display message using class method.
+Logic: Method accepts argument and prints output.
+Program Code:
+<?php
+class Intro {
+    public function show($name) {
+        echo "Hello All, I am $name";
+    }
+}
+$obj = new Intro();
+$obj->show('ALKA');
+?>
+Output: Hello All, I am ALKA
+Practical 26: Sort Integer Array
+Aim: Sort integer array.
+Logic: Built-in sort function used.
+Program Code:
+<?php
+$arr = [5, 2, 8, 1];
+sort($arr);
+print_r($arr);
+?>
+Output: 1 2 5 8
+Practical 27: Calculator Class
+Aim: Perform arithmetic operations using class.
+Logic: Methods return operation results.
+Program Code:
+<?php
+class Calculator {
+    public function add($a, $b) { return $a + $b; }
+    public function sub($a, $b) { return $a - $b; }
+    public function mul($a, $b) { return $a * $b; }
+    public function div($a, $b) { return $a / $b; }
+}
+$c = new Calculator();
+echo $c->add(10, 5);
+?>
+Output: 15
+Practical 28: Difference Between Two Dates
+Aim: Calculate date difference using OOP.
+Logic: DateTime diff method calculates interval.
+Program Code:
+<?php
+$d1 = new DateTime('1981-11-03');
+$d2 = new DateTime('2013-09-04');
+$diff = $d1->diff($d2);
+echo "Difference : {$diff->y} years, {$diff->m} months, {$diff->d} days";
+?>
+Output: Difference : 31 years, 10 months, 1 days
+Practical 29: String to Date Conversion
+Aim: Convert string to date format.
+Logic: Custom format parsing applied.
+Program Code:
+<?php
+$date = DateTime::createFromFormat('d-m-Y', '12-08-2004');
+echo $date->format('Y-m-d');
+?>
+Output: 2004-12-08
+Practical 30: HTML Form with PHP
+Aim: Accept name and message from user.
+Logic: POST method retrieves form data.
+Program Code:
+<form method='post'>
+Name: <input type='text' name='name'><br>
+Message: <input type='text' name='msg'><br>
+<input type='submit'>
+</form>
+<?php
+if ($_POST) {
+    echo $_POST['name'] . ' : ' . $_POST['msg'];
+}
+?>
+Output: Displays entered name and message
